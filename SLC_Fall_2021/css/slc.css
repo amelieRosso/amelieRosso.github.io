@@ -29,6 +29,7 @@
 .slides {
     background-image: url('bg.png');
     text-align: center;
+    background: peachpuff;
  }
  
  h1 {
@@ -64,6 +65,7 @@
   position: absolute;
   top: 40%;
   width: 60px;
+  cursor: grab;
 }
 
 #next-icon{
@@ -113,6 +115,7 @@
   color: White;
   background-color: Black;
   bottom: -100px;
+  cursor: grab;
   
 }
 
