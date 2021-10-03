@@ -27,7 +27,6 @@
 }
 
 .slides {
-    background-image: url('bg.png');
     text-align: center;
     background: peachpuff;
  }
@@ -123,3 +122,27 @@
   background-color: White;
   color: Black;
 }
+
+#facilitating-big {
+  color: White;
+  font-size: 30px;
+  font-family: 'Rowdies', cursive;
+  bottom: 150px;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+#facilitating-small {
+  color: White;
+  font-size: 20px;
+  font-family: 'Rowdies', cursive;
+  bottom: 50px;
+  text-align: left;
+  width: 100%;
+  position: absolute;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+}
+
