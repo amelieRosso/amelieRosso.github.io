@@ -158,5 +158,27 @@
   }
 #college-page {
   background-image:url('./img/cornell.jpeg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.college-text {
+  background-color: peachpuff;
+  height: 100%;
+  width: 35%;
+}
+
+.next-college {
+  color: black;
+    background-color: white;
+    width: 100px;
+    right: 35px;
+    position: absolute;
+    bottom: 20px;
+}
+
+h3 {
+  margin-left: 15px;
 }
 
