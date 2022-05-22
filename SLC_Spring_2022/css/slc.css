@@ -1,5 +1,5 @@
 .index {
-    background-image: url("./img/fall.jpg");
+    background-image: url("./img/Spring.jpg");
     color: white;
 }
 
@@ -28,7 +28,7 @@
 
 .slides {
     text-align: center;
-    background: peachpuff;
+    background: #FFE2F4;
  }
  
  h1 {
@@ -143,7 +143,6 @@
   width: 100%;
   position: absolute;
   text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
-}
 }
 
 #poem-text {
