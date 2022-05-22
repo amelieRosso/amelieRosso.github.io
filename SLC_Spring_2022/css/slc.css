@@ -145,25 +145,15 @@
   text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
 
-#poem-text {
-  color: White;
-  font-size: 20px;
-  font-family: 'Rowdies', cursive;
-  bottom: 50px;
-  text-align: left;
-  width: 100%;
-  position: absolute;
-  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
-  }
 #college-page {
-  background-image:url('./img/cornell.jpeg');
+  background-image:url('./img/cornell.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .college-text {
-  background-color: peachpuff;
+  background-color: #D4DFFF;
   height: 100%;
   width: 35%;
 }
