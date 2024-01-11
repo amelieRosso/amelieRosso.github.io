@@ -8,7 +8,9 @@ import java.awt.event.KeyEvent;
 import java.io.FileReader;
 import java.util.Properties;
 
+//import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -16,9 +18,14 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import java.awt.Component;
+
 public class Login {
     private JTextArea textArea;
     private JTextField nameText;
+    //String lan1 = "German";
+    String[] choices = { "de", "it", "es", "fr", "Norwegian", "Yiddish" };
+    JComboBox<String> cb = new JComboBox<String>(choices);
 
     public void createAndDisplayGui() {
         JFrame frame = new JFrame("Registration");
@@ -54,6 +61,7 @@ public class Login {
         gbc.insets.left = 10;
         gbc.insets.right = 10;
         gbc.insets.top = 0;
+
         JLabel inputLabel = new JLabel("Input");
         form.add(inputLabel, gbc);
         gbc.gridx = 1;
@@ -62,6 +70,19 @@ public class Login {
         gbc.gridy = 1;
         gbc.gridx = 0;
         gbc.gridy = 2;
+
+        JLabel eMailLabel = new JLabel("Language");
+        form.add(eMailLabel, gbc);
+        gbc.gridx = 1;
+        //emailText = new JTextField(16);
+        cb.setMaximumSize(cb.getPreferredSize()); // added code
+        cb.setAlignmentX(Component.LEFT_ALIGNMENT);// added code
+        //ActionListener click = new ActionListener();
+        //cb.addActionListener(new ActionListener);
+        form.add(cb, gbc);
+        gbc.gridx = 0;
+        gbc.gridy = 3;
+
         JLabel outputLabel = new JLabel("Output");
         form.add(outputLabel, gbc);
         gbc.gridx = 1;
@@ -81,9 +102,24 @@ public class Login {
         return heading;
     }
 
+    private static String registerComboBoxListener(JComboBox<String> cb) {
+        String selectedName = (String) cb.getSelectedItem();
+        cb.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Get the selected item from the JComboBox
+
+                System.out.println(selectedName);
+                // You can perform additional actions here based on the selected item
+            }
+        });
+        return selectedName;
+    }
+
     private void submit(ActionEvent event) {
         textArea.setText("");
         String name = nameText.getText();
+        String language = registerComboBoxListener(cb);
         Properties p = new Properties();
         try {
             FileReader reader = new FileReader("translate.properties");
@@ -93,7 +129,7 @@ public class Login {
         }
         GoogleTranslate t = new GoogleTranslate(p.getProperty("google.apikey"));
         try {
-            String tt = t.translate(name, "de");
+            String tt = t.translate(name, language);
             textArea.append(tt);
         }
         catch(Exception e) {

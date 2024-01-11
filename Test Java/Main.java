@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 public class Main {
     static String sentence = "Hello World!";
     public static void main(String[] args) throws Exception {
+        //registerComboBoxListener(cb);
         EventQueue.invokeLater(() -> new Login().createAndDisplayGui());
         //Properties p = new Properties();
         //FileReader reader = new FileReader("translate.properties");
@@ -14,5 +15,6 @@ public class Main {
         //System.out.println(t.translate(sentence, "fr"));
         //System.out.println(t.translate(sentence, "es"));
         //System.out.println(t.translate(sentence, "it"));
+       
     }
 }
