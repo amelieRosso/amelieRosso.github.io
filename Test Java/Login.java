@@ -23,9 +23,13 @@ import java.awt.Component;
 public class Login {
     private JTextArea textArea;
     private JTextField nameText;
-    //String lan1 = "German";
-    String[] choices = { "de", "it", "es", "fr", "Norwegian", "Yiddish" };
-    JComboBox<String> cb = new JComboBox<String>(choices);
+    // String lan1 = "German";
+    // ComboItem[] items = new ComboItem[]{new ComboItem("value1", "label1"),new
+    // ComboItem("value2", "label2")};
+    // JComboBox cb = new JComboBox(items);
+    ComboItem[] comboItems = new ComboItem[] { new ComboItem("de", "German"), new ComboItem("fr", "French") };
+    //JComboBox cb = new JComboBox(comboItems);
+    JComboBox<ComboItem> cb = new JComboBox<ComboItem>(comboItems);
 
     public void createAndDisplayGui() {
         JFrame frame = new JFrame("Registration");
@@ -74,11 +78,11 @@ public class Login {
         JLabel eMailLabel = new JLabel("Language");
         form.add(eMailLabel, gbc);
         gbc.gridx = 1;
-        //emailText = new JTextField(16);
+        // emailText = new JTextField(16);
         cb.setMaximumSize(cb.getPreferredSize()); // added code
         cb.setAlignmentX(Component.LEFT_ALIGNMENT);// added code
-        //ActionListener click = new ActionListener();
-        //cb.addActionListener(new ActionListener);
+        // ActionListener click = new ActionListener();
+        // cb.addActionListener(new ActionListener);
         form.add(cb, gbc);
         gbc.gridx = 0;
         gbc.gridy = 3;
@@ -91,7 +95,7 @@ public class Login {
         textArea.setFocusable(false);
         JScrollPane scrollPane = new JScrollPane(textArea);
         form.add(scrollPane, gbc);
-        return form;      
+        return form;
     }
 
     private JPanel createHeading() {
@@ -102,8 +106,8 @@ public class Login {
         return heading;
     }
 
-    private static String registerComboBoxListener(JComboBox<String> cb) {
-        String selectedName = (String) cb.getSelectedItem();
+    private static String registerComboBoxListener(JComboBox<ComboItem> cb) {
+        String selectedName = ((ComboItem) cb.getSelectedItem()).getValue();
         cb.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -124,15 +128,13 @@ public class Login {
         try {
             FileReader reader = new FileReader("translate.properties");
             p.load(reader);
-        }
-        catch (Exception e){
+        } catch (Exception e) {
         }
         GoogleTranslate t = new GoogleTranslate(p.getProperty("google.apikey"));
         try {
             String tt = t.translate(name, language);
             textArea.append(tt);
+        } catch (Exception e) {
         }
-        catch(Exception e) {
-        } 
     }
 }
